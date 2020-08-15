@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 // import App from '../App/App';
 
-class GalleryList extends Component {
+class GalleryItem extends Component {
     
     render () {
         return (
-            <p>HI</p>
+            <>
+            <p>{this.props.name}</p>
+            </>
         )
     }
 
 }
 
-export default GalleryList;
+export default GalleryItem;

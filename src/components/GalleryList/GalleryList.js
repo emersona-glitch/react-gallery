@@ -8,13 +8,12 @@ class GalleryList extends Component {
             <>
                 {this.props.galleryList.map((item) => {
                    return (
-                       <GalleryItem key={item.id}/>
+                       <GalleryItem name={item.description} key={item.id}/>
                    )
                 })}
             </>
         )
     }
-
 }
 
 export default GalleryList;

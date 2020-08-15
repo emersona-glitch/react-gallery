@@ -12,14 +12,48 @@ import Axios from 'axios';
 // defining a class 'App' as a component
 class App extends Component {
 
+state = {
+  galleryList: []
+};
+
+//like document.ready
+componentDidMount() {
+  //do initial get request
+  this.getGalleryData();
+  console.log('donkey');
+  
+}
+
 getGalleryData = () => {
 
+  
+
   Axios.get('/gallery')
-  .then()
-  .catch();
+  .then(response => {
+    
+    this.setState({
+      ...this.state,
+      galleryList: response.data
+    })
+    // galleryData = response.data;
+    console.log('we got the data')
+    
+  })
+  .catch(error => {
+    console.log('error in axios.get', error);
+  });
 
 }
 // description and alt = same variable
+
+galleryList = () => {
+
+  
+  console.log(this.state.galleryList);
+  
+
+}
+
 
 
   render() {
@@ -30,7 +64,7 @@ getGalleryData = () => {
         </header>
         <br/>
 
-        <GalleryList galleryList=''/>
+        < GalleryList galleryList={ this.state.galleryList } />
 
         <p>Gallery goes here</p>
         <img alt="kitty" src="images/goat_small.jpg"/>
