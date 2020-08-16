@@ -8,6 +8,7 @@ import GalleryList from '../GalleryList/GalleryList'
 // getting some styles for the default App appearance.
 import './App.css';
 import Axios from 'axios';
+// import { get } from '../../../server/routes/gallery.router';
 
 // defining a class 'App' as a component
 class App extends Component {
@@ -59,7 +60,8 @@ class App extends Component {
         </header>
         <br />
 
-        < GalleryList galleryList={this.state.galleryList} />
+        < GalleryList refresh={this.getGalleryData}
+        galleryList={this.state.galleryList} />
 
         {/* <p>Gallery goes here</p> */}
         {/* <img alt="kitty" src="images/goat_small.jpg"/> */}

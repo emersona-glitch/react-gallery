@@ -26,6 +26,7 @@ class GalleryItem extends Component {
         .catch(error => {
             console.log('error in axios.get', error);
         });
+        this.props.refresh()
         // great success now we need to refresh the DOM
     }
 
