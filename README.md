@@ -21,9 +21,9 @@ BASE FEATURES
 - [x] GalleryList (component to display GalleryItems)
 - [x] GalleryItem (individual components within GalleryList)
 - [x] Iterate over data and do stuff I guess
-- [] image switches to description on click
+- [x] image switches to description on click
 - [x] Likes button and likes counter
-- [] Update the gallery when the button is clicked (can
+- [x] Update the gallery when the button is clicked (can
     we not just update a component?)
 
 STRETCH FEATURES
