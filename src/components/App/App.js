@@ -12,47 +12,42 @@ import Axios from 'axios';
 // defining a class 'App' as a component
 class App extends Component {
 
-state = {
-  galleryList: []
-};
+  state = {
+    galleryList: []
+  };
 
-//like document.ready
-componentDidMount() {
-  //do initial get request
-  this.getGalleryData();
-  console.log('donkey');
-  
-}
+  //like document.ready
+  componentDidMount() {
+    //do initial get request
+    this.getGalleryData();
+    console.log('donkey');
 
-getGalleryData = () => {
+  }
 
-  
+  getGalleryData = () => {
+    Axios.get('/gallery')
+      .then(response => {
 
-  Axios.get('/gallery')
-  .then(response => {
-    
-    this.setState({
-      ...this.state,
-      galleryList: response.data
-    })
-    // galleryData = response.data;
-    console.log('we got the data')
-    
-  })
-  .catch(error => {
-    console.log('error in axios.get', error);
-  });
+        this.setState({
+          ...this.state,
+          galleryList: response.data
+        })
+        // galleryData = response.data;
+        console.log('we got the data')
+      })
+      .catch(error => {
+        console.log('error in axios.get', error);
+      });
+  }
+  // description and alt = same variable
 
-}
-// description and alt = same variable
+  galleryList = () => {
 
-galleryList = () => {
 
-  
-  console.log(this.state.galleryList);
-  
+    console.log(this.state.galleryList);
 
-}
+
+  }
 
 
 
@@ -62,12 +57,12 @@ galleryList = () => {
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
-        <br/>
+        <br />
 
-        < GalleryList galleryList={ this.state.galleryList } />
+        < GalleryList galleryList={this.state.galleryList} />
 
-        <p>Gallery goes here</p>
-        <img alt="kitty" src="images/goat_small.jpg"/>
+        {/* <p>Gallery goes here</p> */}
+        {/* <img alt="kitty" src="images/goat_small.jpg"/> */}
       </div>
     );
   }
